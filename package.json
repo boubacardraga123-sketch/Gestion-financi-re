@@ -1,0 +1,42 @@
+{
+  "name": "gestion-financiere-bhds",
+  "productName": "Gestion Financière BHDS",
+  "version": "5.8.0",
+  "description": "Application de gestion financière - Collection BHDS",
+  "author": "Boubacar - Club Réussir Ensemble",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.bhds.gestionfinanciere",
+    "productName": "Gestion Financière BHDS",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "app/**/*"
+    ],
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Gestion Financière BHDS"
+    }
+  }
+}
